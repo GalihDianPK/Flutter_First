@@ -1,70 +1,26 @@
+// main.dart adalah file PERTAMA yang dijalankan oleh Flutter saat aplikasi dibuka.
+// Di sinilah jantung utama aplikasi kita berada.
 import 'package:flutter/material.dart';
+import 'pages/home_page.dart'; // Mengambil kode halaman utama yang ada di folder pages
 
+// Fungsi main() adalah titik awal (entry point). Aplikasi selalu mulai dari sini.
 void main() {
-  runApp(const MyApp());
+  runApp(const MyApp()); // Menjalankan aplikasi (widget) bernama MyApp
 }
 
+// MyApp adalah "Bungkus Utama" dari seluruh aplikasi kita.
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // MaterialApp adalah kerangka dasar aplikasi bergaya Google (Material Design).
+    // Ini memberikan kita pengaturan dasar seperti navigasi dan tema.
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  // --- BAGIAN LOGIKA / BACKEND ---
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // Menambah nilai counter dan memperbarui UI
-      _counter++;
-    });
-  }
-
-  // --- BAGIAN UI ---
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text('Anda telah menekan tombol sebanyak:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter, // Memanggil fungsi logika di atas
-        tooltip: 'Tambah',
-        child: const Icon(Icons.add),
-      ),
+      debugShowCheckedModeBanner: false, // Menghilangkan pita merah "DEBUG" di pojok kanan atas layar
+      // home: menentukan halaman mana yang PERTAMA KALI muncul saat aplikasi dibuka.
+      // Kita arahkan ke 'homepage' yang baru saja Anda buat!
+      home: const homepage(),
     );
   }
 }
