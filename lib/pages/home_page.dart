@@ -23,17 +23,36 @@ class homepage extends StatelessWidget {
         title: const Text("Aplikasi Keuangan"),
         backgroundColor: Colors.blue, // Warna latar belakang AppBar
         foregroundColor: Colors.white, // Warna teks (title) di dalam AppBar
-      ),  //AppBar     
-      
-      // 2. Body: Bagian isi/tengah halaman aplikasi
-      // Center: Widget untuk membungkus isinya agar berada persis di tengah layar
-      body: const Center(
-        // Text: Menampilkan tulisan teks di layar
-        child: Text(
-          'Halo! ini adalah halaman utama!',
-          style: TextStyle(fontSize: 40),
-        ),
       ),
+            
+      body: Column(
+        children: [
+          
+          Container(
+            margin: const EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              color: Colors.blueAccent,
+              borderRadius: BorderRadius.circular(15),
+            
+            ),
+            child: const Column(
+              children: [
+                Text(
+                  "Halo! ini adalah halaman utama!",
+                  style: TextStyle(fontSize: 20, color: Colors.white),
+                ),
+                SizedBox(height: 20),
+                Text(
+                  "Rp 5.000.000",
+                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                ) 
+              ]
+            ),
+            
+          )
+        ]
+      )
     );
   }
 }
